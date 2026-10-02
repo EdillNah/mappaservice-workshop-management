@@ -1,6 +1,6 @@
-CREATE DATABASE mappaservice;
+CREATE DATABASE mappaservice_db;
 
-USE mappaservice;
+USE mappaservice_db;
 
 CREATE TABLE pelanggan (
     ...
