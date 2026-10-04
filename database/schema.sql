@@ -1,13 +1,13 @@
 create database mappaservice_db;
 
-create table pengguna (
-	id_pengguna int auto_increment primary key,
-	nama varchar(100) not null,
-	nama_pengguna varchar(50) not null unique,
-	password varchar(20) not null,
-	peran enum('owner','kasir') not null
+create table users (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(10) NOT NULL,
+  role ENUM('owner', 'kasir') NOT NULL
 );
 
-insert into pengguna (nama, nama_pengguna, password, peran)
+insert into users (name, username, password, role)
 values('Owner MappaService', 'owner', '12345', 'owner'),
 ('Kasir MappaService', 'kasir', '12345', 'kasir');
