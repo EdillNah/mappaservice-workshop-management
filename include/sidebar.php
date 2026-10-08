@@ -1,5 +1,4 @@
 <aside class="w-64 bg-white border-r min-h-screen flex flex-col">
-
   <div class="px-6 py-5 border-b">
     <h1 class="text-xl font-bold text-gray-800">MappaService</h1>
     <p class="text-xs text-gray-500 mt-1">Workshop Management</p>
@@ -44,5 +43,4 @@
     </a>
   </div>
 </aside>
-
 <main class="flex-1">
