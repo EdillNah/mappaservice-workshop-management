@@ -10,8 +10,8 @@ harusKasir();
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Kasir MappaService</title>
+  <meta charset="UTF-8">
+  <title>Kasir MappaService</title>
 </head>
 
 <body>
@@ -22,13 +22,13 @@ harusKasir();
   <p>Selamat datang, <?= htmlspecialchars($_SESSION["name"]) ?></p>
   <hr>
   <h3>Pelayanan</h3>
-    <ul>
-      <li><a href="../pelanggan/pelanggan.php">Data Pelanggan</a></li>
-      <li><a href="../kendaraan/kendaraan.php">Data Kendaraan</a></li>
-      <li><a href="../servis/servis.php">Data Servis</a></li>
-    </ul>
-    <br>
-    <a href="../views/auth/logout.php">Logout</a>
+  <ul>
+    <li><a href="../pelanggan/pelanggan.php">Data Pelanggan</a></li>
+    <li><a href="../kendaraan/kendaraan.php">Data Kendaraan</a></li>
+    <li><a href="../servis/servis.php">Data Servis</a></li>
+  </ul>
+  <br>
+  <a href="../views/auth/logout.php">Logout</a>
 
 </body>
 

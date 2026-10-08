@@ -24,7 +24,6 @@ $pelanggan = $stmt->fetchAll();
 </head>
 
 <body>
-
   <h1>Data Pelanggan</h1>
 
   <a href="../dashboard/kasir.php">← Kembali ke Kasir</a>
@@ -46,8 +45,10 @@ $pelanggan = $stmt->fetchAll();
         <td colspan="6" align="center">Belum ada data pelanggan.</td>
       </tr>
     <?php else: ?>
-      <?php $no = 1;?>
-      <?php foreach ($pelanggan as $data): ?>
+      <?php
+        $no = 1;
+        foreach ($pelanggan as $data):
+      ?>
         <tr>
           <td><?= $no++; ?></td> 
           <td><?= $data["pelanggan_id"] ?></td>
@@ -55,7 +56,6 @@ $pelanggan = $stmt->fetchAll();
           <td><?= htmlspecialchars($data["no_telpon"]) ?></td>
           <td><?= htmlspecialchars($data["alamat"]) ?></td>
           <td>
-            <!-- Tombol Edit & Hapus -->
             <a href="edit_pelanggan.php?id=<?= $data["pelanggan_id"] ?>">Edit</a>
             <br>
             <form action="hapus_pelanggan.php" method="POST" onsubmit="return confirm('Yakin ingin menghapus pelanggan ini?')">

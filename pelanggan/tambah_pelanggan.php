@@ -8,22 +8,16 @@ require_once "../include/function.php";
 harusKasir();
 
 if (isset($_POST["simpan"])) {
+  $nama = $_POST["nama"];
+  $no_telpon = $_POST["no_telpon"];
+  $alamat = $_POST["alamat"];
 
-    $nama = $_POST["nama"];
-    $no_telpon = $_POST["no_telpon"];
-    $alamat = $_POST["alamat"];
+  $sql = "INSERT INTO pelanggan (nama, no_telpon, alamat) VALUES (?, ?, ?)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$nama,$no_telpon,$alamat]);
 
-    $sql = "INSERT INTO pelanggan
-            (nama, no_telpon, alamat)
-            VALUES (?, ?, ?)";
-
-    $stmt = $pdo->prepare($sql);
-
-    $stmt->execute([$nama,$no_telpon,
-            $alamat]);
-
-    header("Location: pelanggan.php");
-    exit;
+  header("Location: pelanggan.php");
+  exit;
 }
 
 ?>

@@ -1,37 +1,31 @@
 <?php
 
-function sudahLogin()
-{
-    return isset($_SESSION["user_id"]);
+function sudahLogin() {
+  return isset($_SESSION["user_id"]);
 }
 
-function harusLogin()
-{
-    if (!sudahLogin()) {
-        // Redirect selalu mengarah tepat ke login.php di folder views/auth/
-        header("Location: ../views/auth/login.php");
-        exit;
-    }
+function harusLogin() {
+  if (!sudahLogin()) {
+    header("Location: ../views/auth/login.php");
+    exit;
+  }
 }
 
-function harusKasir()
-{
-    harusLogin();
+function harusKasir() {
+  harusLogin();
 
-    if ($_SESSION["role"] !== "kasir") {
-        // Jika bukan kasir, lempar ke dashboard owner
-        header("Location: ../dashboard/owner.php");
-        exit;
-    }
+  if ($_SESSION["role"] !== "kasir") {
+    header("Location: ../dashboard/owner.php");
+    exit;
+  }
 }
 
 function harusOwner()
 {
-    harusLogin();
+  harusLogin();
 
-    if ($_SESSION["role"] !== "owner") {
-        // Jika bukan owner, lempar ke dashboard kasir
-        header("Location: ../dashboard/kasir.php");
-        exit;
-    }
+  if ($_SESSION["role"] !== "owner") {
+    header("Location: ../dashboard/kasir.php");
+    exit;
+  }
 }

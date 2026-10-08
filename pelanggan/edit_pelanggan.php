@@ -1,10 +1,8 @@
 <?php
 
 session_start();
-
 require_once "../config/koneksi.php";
 require_once "../include/function.php";
-
 harusKasir();
 
 $id = (int) $_GET["id"];
@@ -19,12 +17,6 @@ if (!$pelanggan) {
   die("Data pelanggan tidak ditemukan.");
 }
 
-/*
-|--------------------------------------------------------------------------
-| Proses UPDATE
-|--------------------------------------------------------------------------
-*/
-
 if (isset($_POST["update"])) {
   $nama = $_POST["nama"];
   $no_telpon = $_POST["no_telpon"];
@@ -32,7 +24,6 @@ if (isset($_POST["update"])) {
 
   $sql = "UPDATE pelanggan SET nama = ?, no_telpon = ?, alamat = ? WHERE pelanggan_id = ?";
   $stmt = $pdo->prepare($sql);
-
   $stmt->execute([$nama, $no_telpon, $alamat, $id]);
 
   header("Location: pelanggan.php");
