@@ -8,7 +8,6 @@ harusOwner();
 
 $pageTitle = "Dashboard Owner";
 
-// Financial metrics: Modal Restock & Summary
 $stmt = $pdo->query("SELECT COALESCE(SUM(total_biaya), 0) FROM restock");
 $totalModal = (float) $stmt->fetchColumn();
 
@@ -18,7 +17,7 @@ $totalBatchRestock = (int) $stmt->fetchColumn();
 $stmt = $pdo->query("SELECT COUNT(*) FROM transaksi WHERE status_pembayaran = 'lunas'");
 $totalTransaksi = (int) $stmt->fetchColumn();
 
-// Trend Finansial (Pendapatan, Profit Kotor, Profit Bersih) per Tanggal Transaksi
+// Trend Finansial (pendapatan, profit kotor, profit bersih) per Tanggal Transaksi
 $sqlTrend = "SELECT 
     DATE(t.tanggal_transaksi) as tgl,
     COUNT(t.transaksi_id) as jumlah_transaksi,
@@ -57,21 +56,18 @@ $totalPendapatan = array_sum($chartPendapatan);
 $totalProfitKotor = array_sum($chartProfitKotor);
 $totalProfitBersih = array_sum($chartProfitBersih);
 
-// Customers & Vehicles
 $stmt = $pdo->query("SELECT COUNT(*) FROM pelanggan");
 $totalPelanggan = (int) $stmt->fetchColumn();
 
 $stmt = $pdo->query("SELECT COUNT(*) FROM kendaraan");
 $totalKendaraan = (int) $stmt->fetchColumn();
 
-// Mechanics
 $stmt = $pdo->query("SELECT COUNT(*) FROM mekanik");
 $totalMekanik = (int) $stmt->fetchColumn();
 
 $stmt = $pdo->query("SELECT COUNT(*) FROM mekanik WHERE status = 'tersedia'");
 $mekanikTersedia = (int) $stmt->fetchColumn();
 
-// Spareparts & Low Stock Alert
 $stmt = $pdo->query("SELECT COUNT(*) FROM sparepart");
 $totalSparepart = (int) $stmt->fetchColumn();
 
@@ -97,7 +93,6 @@ include "../include/sidebar.php";
 ?>
 
 <div class="p-6 md:p-8 max-w-7xl mx-auto space-y-8">
-  <!-- Top Welcome & Owner Actions -->
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-charcoal pb-6">
     <div>
       <div class="flex items-center gap-2">
@@ -118,7 +113,6 @@ include "../include/sidebar.php";
     </div>
   </div>
 
-  <!-- KPI Overview 4 Cards -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     <!-- Modal -->
     <div class="bg-obsidian border border-charcoal rounded-2xl p-5 hover:border-slate transition-all group">
@@ -225,7 +219,6 @@ include "../include/sidebar.php";
     </div>
   </div>
 
-  <!-- 2-Column Split: Low Stock Alerts & Recent Transactions -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <!-- Left: Low Stock Alert -->
     <div class="bg-obsidian border border-charcoal rounded-2xl overflow-hidden flex flex-col">
