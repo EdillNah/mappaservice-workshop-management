@@ -17,7 +17,6 @@ $totalBatchRestock = (int) $stmt->fetchColumn();
 $stmt = $pdo->query("SELECT COUNT(*) FROM transaksi WHERE status_pembayaran = 'lunas'");
 $totalTransaksi = (int) $stmt->fetchColumn();
 
-// Trend Finansial (pendapatan, profit kotor, profit bersih) per Tanggal Transaksi
 $sqlTrend = "SELECT 
     DATE(t.tanggal_transaksi) as tgl,
     COUNT(t.transaksi_id) as jumlah_transaksi,
@@ -74,7 +73,6 @@ $totalSparepart = (int) $stmt->fetchColumn();
 $stmt = $pdo->query("SELECT * FROM sparepart WHERE stok <= 5 ORDER BY stok ASC LIMIT 5");
 $stokMenipis = $stmt->fetchAll();
 
-// Recent Transactions
 $stmt = $pdo->query("SELECT
     t.*,
     s.servis_id,
