@@ -210,8 +210,8 @@ mappaservice_db
 
 | Role | Username | Password | Keterangan |
 |---|---|---|---|
-| **Owner** | `owner` | `12345` | Akses penuh ke Executive Dashboard & Laporan |
-| **Kasir** | `kasir` | `12345` | Akses ke Operasional Servis & Kasir Pembayaran |
+| **Owner** | `admin@mappaservice.com` | `12345` | Akses penuh ke Executive Dashboard & Laporan |
+| **Kasir** | `kasir@mappaservice.com` | `12345` | Akses ke Operasional Servis & Kasir Pembayaran |
 
 ---
 
