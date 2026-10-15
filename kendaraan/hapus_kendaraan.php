@@ -3,7 +3,8 @@
 session_start();
 require_once "../config/koneksi.php";
 require_once "../include/function.php";
-harusKasir();
+harusLogin();
+
 
 if (!isset($_POST["id"])) {
   header("Location: kendaraan.php");
