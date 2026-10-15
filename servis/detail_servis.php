@@ -154,8 +154,7 @@ include "../include/sidebar.php";
           <label class="block text-xs font-medium text-silver mb-1.5">Biaya Jasa Bengkel (Rp)</label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-mono text-smoke">Rp</span>
-            <input type="number"
-                   name="biaya_jasa"
+            <input type="number" name="biaya_jasa"
                    min="0"
                    step="500"
                    value="<?= htmlspecialchars((int)$biayaJasa) ?>"
