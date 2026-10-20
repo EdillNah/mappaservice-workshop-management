@@ -2,7 +2,8 @@
 session_start();
 require_once "../config/koneksi.php";
 require_once "../include/function.php";
-harusKasir();
+harusLogin();
+
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   header("Location: mekanik.php");
